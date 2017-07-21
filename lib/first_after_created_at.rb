@@ -1,7 +1,6 @@
 module FirstAfterCreatedAt
   def first_after_created_at(time)
-    return nil if first.nil?
-
+    return nil unless first
     time = Time.parse(time.to_s)
     best = nil
     min_id = first.id
