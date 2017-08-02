@@ -1,12 +1,14 @@
+require 'pry'
+
 module FirstAfterCreatedAt
   def first_after_created_at(time)
+    return nil if first.nil?
+
     time = Time.parse(time.to_s)
     best = nil
-
-    return nil if first.nil?
-    
     min_id = first.id
     max_id = last.id
+
     loop do
       mid_id = (min_id + max_id) / 2
       mid_obj = find(mid_id)
@@ -15,9 +17,9 @@ module FirstAfterCreatedAt
       break if min_id == max_id
 
       if mid_obj.created_at < time
-        min_id = mid_id + 1
+        min_id = mid_id < max_id ? mid_id + 1 : mid_id
       else
-        max_id = mid_id - 1
+        max_id = mid_id > min_id ? mid_id - 1 : mid_id
       end
     end
 

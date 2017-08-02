@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "activerecord", "~> 4.2.9"
 
+  s.add_development_dependency "pry"
+  s.add_development_dependency "rb-readline"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rails", "~> 4.2.9"
 end
