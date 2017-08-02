@@ -1,36 +1,40 @@
 require 'test_helper'
 
 class FirstAfterCreatedAtTest < ActiveSupport::TestCase
-  test "first_after_created_at can be called" do
-    HasTimestamp.first_after_created_at(Time.at(0))
-  end
-
-  test "first_after_created_at returns nil if no object found" do
+  test 'returns nil if no object exists' do
     assert_nil HasTimestamp.first_after_created_at(Time.now)
   end
 
-  test "first_after_created_at returns first object created after given time" do
-    obj = HasTimestamp.create
-    assert_equal obj, HasTimestamp.first_after_created_at(Time.at(0))
+  test 'returns nil if no object meets criteria' do
+    HasTimestamp.create
+    assert_nil HasTimestamp.first_after_created_at(1.hour.from_now)
   end
 
-  test "first_after_created_at returns first object created after given time given two objects" do
+  test 'can return the first object' do
     obj = HasTimestamp.create
-    obj.update_attribute(:created_at, 5.minutes.ago)
-    obj2 = HasTimestamp.create
-
-    assert_equal obj2, HasTimestamp.first_after_created_at(4.minutes.ago)
+    HasTimestamp.create
+    assert_equal obj, HasTimestamp.first_after_created_at(1.hour.ago)
   end
 
-  test "first_after_created_at returns object with min id created after given time given two objects" do
-    obj = HasTimestamp.create
-    obj2 = HasTimestamp.create
-    obj2.update_attribute(:created_at, obj.created_at)
+  test "will ignore first object if it's out of scope" do
+    HasTimestamp.create
+    obj = HasTimestamp.create(created_at: 2.hours.from_now)
 
-    assert_equal obj, HasTimestamp.first_after_created_at(Time.at(0))
+    assert_equal obj, HasTimestamp.first_after_created_at(1.hour.from_now)
   end
 
-  # multiple objects with the same created_at
-  # normal (array bounds)
-  # equal to created_at
+  test 'given two objects with same created at, returns one with min id' do
+    obj = HasTimestamp.create
+    HasTimestamp.create(created_at: obj.created_at)
+
+    assert_equal obj, HasTimestamp.first_after_created_at(1.hour.ago)
+  end
+
+  test 'can return the middle object' do
+    objs = Array.new(3) do |n|
+      HasTimestamp.create(created_at: n.hours.from_now)
+    end
+    middle = objs[1]
+    assert_equal middle, HasTimestamp.first_after_created_at(middle.created_at)
+  end
 end
