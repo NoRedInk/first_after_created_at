@@ -1,5 +1,3 @@
-require 'pry'
-
 module FirstAfterCreatedAt
   def first_after_created_at(time)
     return nil if first.nil?

@@ -26,7 +26,7 @@ class FirstAfterCreatedAtTest < ActiveSupport::TestCase
     obj = HasTimestamp.create
     obj2 = HasTimestamp.create
     obj2.update_attribute(:created_at, obj.created_at)
-    
+
     assert_equal obj, HasTimestamp.first_after_created_at(Time.at(0))
   end
 
