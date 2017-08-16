@@ -37,4 +37,10 @@ class FirstAfterCreatedAtTest < ActiveSupport::TestCase
     middle = objs[1]
     assert_equal middle, HasTimestamp.first_after_created_at(middle.created_at)
   end
+
+  test 'can join to another table' do
+    obj = HasTimestamp.create
+    found_with_join = HasTimestamp.joins('INNER JOIN has_timestamps h ON h.id = has_timestamps.id').first_after_created_at(obj.created_at)
+    assert_equal obj, found_with_join
+  end
 end
