@@ -10,7 +10,7 @@ module FirstAfterCreatedAt
     loop do
       mid_id = (min_id + max_id) / 2
       mid_obj =
-        select(:id, :created_at).where('id >= ?', mid_id).order(:id).first
+        select(:id, :created_at).where("#{quoted_table_name}.#{connection.quote_column_name('id')} >= ?", mid_id).order(:id).first
 
       best = get_best(mid_obj, time, best)
       break if min_id == max_id
