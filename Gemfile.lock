@@ -45,7 +45,6 @@ GEM
     addressable (2.4.0)
     arel (9.0.0)
     builder (3.2.3)
-    byebug (10.0.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     descendants_tracker (0.0.4)
@@ -156,7 +155,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 5.2.2)
-  byebug
   jeweler (>= 2.3.7)
   rails (~> 5.2.2)
   sqlite3 (~> 1.3.6)
