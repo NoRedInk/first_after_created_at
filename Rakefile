@@ -21,7 +21,6 @@ Juwelier::Tasks.new do |gem|
   gem.description = gem.summary
   gem.email = "me@mike.is"
   gem.authors = ["Michael Glass", "quelledanielle"]
-  gem.add_dependency 'activerecord', '~> 5.2.2'
 end
 Juwelier::RubygemsDotOrgTasks.new
 
