@@ -85,8 +85,25 @@ Gem::Specification.new do |s|
   s.rubygems_version = "3.0.2".freeze
   s.summary = "adds a first_by_created_at class method to active record models that search by binary search through auto-ascending primary key ids".freeze
 
-  s.add_runtime_dependency(%q<activerecord>.freeze, ["~> 5.2.2"])
-  s.add_development_dependency(%q<sqlite3>.freeze, ["~> 1.3.6"])
-  s.add_development_dependency(%q<jeweler>.freeze, [">= 2.3.9"])
-  s.add_development_dependency(%q<rails>.freeze, ["~> 5.2.2"])
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
+
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<first_after_created_at>.freeze, [">= 0"])
+      s.add_development_dependency(%q<sqlite3>.freeze, ["~> 1.3.6"])
+      s.add_development_dependency(%q<jeweler>.freeze, [">= 2.3.9"])
+      s.add_development_dependency(%q<rails>.freeze, ["~> 5.2.2"])
+    else
+      s.add_dependency(%q<first_after_created_at>.freeze, [">= 0"])
+      s.add_dependency(%q<sqlite3>.freeze, ["~> 1.3.6"])
+      s.add_dependency(%q<jeweler>.freeze, [">= 2.3.9"])
+      s.add_dependency(%q<rails>.freeze, ["~> 5.2.2"])
+    end
+  else
+    s.add_dependency(%q<first_after_created_at>.freeze, [">= 0"])
+    s.add_dependency(%q<sqlite3>.freeze, ["~> 1.3.6"])
+    s.add_dependency(%q<jeweler>.freeze, [">= 2.3.9"])
+    s.add_dependency(%q<rails>.freeze, ["~> 5.2.2"])
+  end
 end
+
