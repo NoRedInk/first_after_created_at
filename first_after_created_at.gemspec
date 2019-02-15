@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
   s.description = "adds a first_by_created_at class method to active record models that search by binary search through auto-ascending primary key ids".freeze
   s.email = "me@mike.is".freeze
   s.extra_rdoc_files = [
-    "README.md"
+    "README.md",
+    "TODO"
   ]
   s.files = [
     ".travis.yml",
