@@ -11,8 +11,8 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
+require 'juwelier'
+Juwelier::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "first_after_created_at"
   gem.homepage = "http://github.com/NoRedInk/first_after_created_at"
@@ -22,7 +22,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = "me@mike.is"
   gem.authors = ["Michael Glass", "quelledanielle"]
 end
-Jeweler::RubygemsDotOrgTasks.new
+Juwelier::RubygemsDotOrgTasks.new
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
