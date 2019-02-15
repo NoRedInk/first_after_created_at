@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "MIT-LICENSE",
     "README.md",
     "Rakefile",
+    "TODO",
     "VERSION",
     "first_after_created_at.gemspec",
     "lib/first_after_created_at.rb",
