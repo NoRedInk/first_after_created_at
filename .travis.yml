@@ -8,3 +8,4 @@ before_install:
 gemfile:
   - gemfiles/rails_5.2.gemfile
   - gemfiles/rspec_6.0.gemfile
+cache: bundler
