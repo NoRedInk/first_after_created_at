@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     first_after_created_at (1.0.1)
       activerecord (>= 5.2.2, < 7.0.0)
@@ -126,7 +126,7 @@ PLATFORMS
 DEPENDENCIES
   appraisal
   first_after_created_at!
-  rails (~> 5.2.3)
+  rails (~> 5.2.0)
   sqlite3 (~> 1.4.0)
 
 BUNDLED WITH
