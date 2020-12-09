@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    first_after_created_at (1.0.1)
+    first_after_created_at (1.1.0)
       activerecord (>= 5.2.2, < 7.0.0)
 
 GEM
