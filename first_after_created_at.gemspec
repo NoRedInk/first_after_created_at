@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency("activerecord", ">= 5.2.2", "< 7.0.0")
   s.add_development_dependency("sqlite3", "~> 1.4.0")
+  s.add_development_dependency("appraisal")
   s.add_development_dependency("rails", "~> 5.2.3")
 end
