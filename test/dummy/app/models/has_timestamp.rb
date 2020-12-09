@@ -1,2 +1,2 @@
-class HasTimestamp < ActiveRecord::Base
+class HasTimestamp <ApplicationRecord 
 end

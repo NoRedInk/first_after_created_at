@@ -4,7 +4,7 @@ ENV["RAILS_ENV"] = "test"
 require_relative "../test/dummy/config/environment"
 
 require "rails/test_help"
-ActiveRecord::MigrationContext.new(File.expand_path("../test/dummy/db/migrate", __dir__)).migrate
+ActiveRecord::Migration.maintain_test_schema!
 
 # Filter out the backtrace from minitest while preserving the one from other libraries.
 Minitest.backtrace_filter = Minitest::BacktraceFilter.new
